@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Farheen Khan — Teacher at Government of Jammu and Kashmir, based in Dubai." />
+  <title>Farheen Khan — Personal Profile</title>
+
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --surface: rgba(255,255,255,.78);
+      --text: #111318;
+      --muted: #70757f;
+      --line: rgba(17,19,24,.09);
+      --blue: #0b57d0;
+      --blue-soft: #eaf2ff;
+      --dark: #101216;
+      --radius-lg: 32px;
+      --radius-md: 20px;
+      --shadow: 0 24px 70px rgba(17,19,24,.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 85% 5%, rgba(77,135,255,.14), transparent 28rem),
+        radial-gradient(circle at 5% 45%, rgba(190,210,255,.18), transparent 25rem),
+        var(--bg);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    /* Navigation */
+    .nav-wrap {
+      position: fixed;
+      z-index: 20;
+      top: 18px;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+    }
+
+    nav {
+      width: min(980px, calc(100% - 40px));
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px 10px 18px;
+      border: 1px solid rgba(255,255,255,.75);
+      border-radius: 999px;
+      background: rgba(255,255,255,.68);
+      backdrop-filter: blur(22px) saturate(160%);
+      box-shadow: 0 12px 35px rgba(0,0,0,.07);
+      pointer-events: auto;
+    }
+
+    .brand {
+      font-weight: 750;
+      letter-spacing: -.04em;
+      font-size: 15px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: #555a64;
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(17,19,24,.06);
+    }
+
+    .contact-pill {
+      background: var(--dark) !important;
+      color: white !important;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      align-items: center;
+      padding: 150px 0 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.65);
+      color: #575c66;
+      font-size: 12px;
+      font-weight: 650;
+      letter-spacing: .02em;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #35a853;
+      box-shadow: 0 0 0 4px rgba(53,168,83,.1);
+    }
+
+    h1 {
+      margin: 25px 0 20px;
+      max-width: 820px;
+      font-size: clamp(58px, 8vw, 105px);
+      line-height: .91;
+      letter-spacing: -.075em;
+      font-weight: 760;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 19px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1px solid var(--line);
+      background: white;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    }
+
+    .button.primary {
+      background: var(--dark);
+      color: white;
+      border-color: var(--dark);
+    }
+
+    .profile-card {
+      position: relative;
+      min-height: 420px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, #15171c, #2a2e38);
+      color: white;
+      padding: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-card::before,
+    .profile-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(3px);
+    }
+
+    .profile-card::before {
+      width: 280px;
+      height: 280px;
+      right: -90px;
+      top: -80px;
+      background: radial-gradient(circle, rgba(84,137,255,.8), transparent 68%);
+    }
+
+    .profile-card::after {
+      width: 230px;
+      height: 230px;
+      left: -100px;
+      bottom: -100px;
+      background: radial-gradient(circle, rgba(255,255,255,.14), transparent 70%);
+    }
+
+    .card-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: rgba(255,255,255,.62);
+    }
+
+    .avatar {
+      position: absolute;
+      z-index: 1;
+      left: 30px;
+      bottom: 102px;
+      width: 82px;
+      height: 82px;
+      border-radius: 25px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #fff, #dfe7f6);
+      color: #15171c;
+      font-size: 29px;
+      font-weight: 800;
+      letter-spacing: -.08em;
+    }
+
+    .profile-info {
+      position: absolute;
+      z-index: 1;
+      left: 30px;
+      right: 30px;
+      bottom: 29px;
+    }
+
+    .profile-info h2 {
+      margin: 0 0 5px;
+      font-size: 27px;
+      letter-spacing: -.045em;
+    }
+
+    .profile-info p {
+      margin: 0;
+      color: rgba(255,255,255,.62);
+      font-size: 14px;
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-label {
+      color: var(--blue);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: -.06em;
+      margin: 0 0 18px;
+      max-width: 680px;
+    }
+
+    .section-intro {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 80px;
+      margin-top: 60px;
+      align-items: start;
+    }
+
+    .about-statement {
+      font-size: 30px;
+      line-height: 1.2;
+      letter-spacing: -.045em;
+      font-weight: 650;
+    }
+
+    .about-text {
+      color: #5e636d;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .fact {
+      padding: 20px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+    }
+
+    .fact small {
+      display: block;
+      color: #858a93;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .11em;
+      margin-bottom: 6px;
+      font-weight: 750;
+    }
+
+    .fact strong {
+      font-size: 15px;
+    }
+
+    /* Experience */
+    .experience {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .experience-card {
+      margin-top: 55px;
+      padding: 36px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 15px 45px rgba(0,0,0,.035);
+      display: grid;
+      grid-template-columns: 90px 1fr auto;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .year-mark {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .experience-card h3 {
+      margin: 0 0 5px;
+      font-size: 25px;
+      letter-spacing: -.04em;
+    }
+
+    .experience-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .role {
+      padding: 9px 13px;
+      background: #f0f1f3;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    /* Contact */
+    .contact-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 70px;
+      border-radius: 40px;
+      background: #111318;
+      color: white;
+    }
+
+    .contact-panel::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -150px;
+      top: -170px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(64,120,255,.5), transparent 68%);
+    }
+
+    .contact-panel > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-panel .section-label {
+      color: #8fb4ff;
+    }
+
+    .contact-panel .section-title {
+      max-width: 720px;
+    }
+
+    .contact-panel .section-intro {
+      color: rgba(255,255,255,.62);
+      margin-bottom: 32px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .contact-links a {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.12);
+      color: white;
+    }
+
+    .contact-links a:hover {
+      background: rgba(255,255,255,.16);
+    }
+
+    footer {
+      padding: 35px 0 50px;
+      color: #888d96;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* Mobile */
+    @media (max-width: 820px) {
+      .container { width: min(100% - 28px, 620px); }
+
+      .nav-wrap { top: 10px; }
+      nav { width: calc(100% - 20px); }
+      .nav-links a:not(.contact-pill) { display: none; }
+
+      .hero {
+        min-height: auto;
+        padding: 130px 0 70px;
+      }
+
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      h1 { font-size: clamp(54px, 16vw, 82px); }
+
+      .hero-copy { font-size: 17px; }
+
+      .profile-card { min-height: 360px; }
+
+      section { padding: 75px 0; }
+
+      .experience-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 25px;
+      }
+
+      .role {
+        width: fit-content;
+      }
+
+      .contact-panel {
+        padding: 42px 25px;
+        border-radius: 30px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="nav-wrap">
+    <nav aria-label="Primary navigation">
+      <a class="brand" href="#top">FK.</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a class="contact-pill" href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <main id="top">
+
+    <header class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">
+            <span class="status-dot"></span>
+            Based in Dubai
+          </span>
+
+          <h1>Farheen<br />Khan.</h1>
+
+          <p class="hero-copy">
+            Teacher at the Government of Jammu and Kashmir, bringing experience
+            from education and a people-first perspective to everything she does.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#experience">View experience</a>
+            <a class="button" href="mailto:farheen.ku@gmail.com">Get in touch</a>
+          </div>
+        </div>
+
+        <aside class="profile-card" aria-label="Profile summary">
+          <div class="card-top">
+            <span>PERSONAL PROFILE</span>
+            <span>01 / 01</span>
+          </div>
+
+          <div class="avatar" aria-hidden="true">FK</div>
+
+          <div class="profile-info">
+            <h2>Farheen Khan</h2>
+            <p>Teacher · Government of Jammu and Kashmir</p>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-label">01 — About</div>
+        <h2 class="section-title">A simple profile, with room to grow.</h2>
+        <p class="section-intro">
+          A clean introduction to Farheen's professional background and current base.
+        </p>
+
+        <div class="about-grid">
+          <div class="about-statement">
+            Education, experience,<br />and a people-first approach.
+          </div>
+
+          <div>
+            <div class="about-text">
+              Farheen Khan is a teacher with the Government of Jammu and Kashmir.
+              She is currently based in Dubai, United Arab Emirates.
+            </div>
+
+            <div class="facts">
+              <div class="fact">
+                <small>Profession</small>
+                <strong>Teacher</strong>
+              </div>
+              <div class="fact">
+                <small>Organization</small>
+                <strong>Government of Jammu and Kashmir</strong>
+              </div>
+              <div class="fact">
+                <small>Location</small>
+                <strong>Dubai, UAE</strong>
+              </div>
+              <div class="fact">
+                <small>LinkedIn</small>
+                <strong>farheenakhan</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="experience">
+      <div class="container">
+        <div class="section-label">02 — Experience</div>
+        <h2 class="section-title">Professional experience.</h2>
+        <p class="section-intro">
+          A focused snapshot of Farheen's professional role.
+        </p>
+
+        <article class="experience-card">
+          <div class="year-mark" aria-hidden="true">GJK</div>
+
+          <div>
+            <h3>Government of Jammu and Kashmir</h3>
+            <p>Education · Jammu and Kashmir</p>
+          </div>
+
+          <span class="role">Teacher</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div class="section-label">03 — Contact</div>
+          <h2 class="section-title">Let's connect.</h2>
+          <p class="section-intro">
+            For professional conversations, reach out by email or connect on LinkedIn.
+          </p>
+
+          <div class="contact-links">
+            <a class="button" href="mailto:farheen.ku@gmail.com">farheen.ku@gmail.com</a>
+            <a
+              class="button"
+              href="https://www.linkedin.com/in/farheenakhan"
+              target="_blank"
+              rel="noopener noreferrer"
+            >LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="container">
+    <span>© <span id="year"></span> Farheen Khan</span>
+    <span>Personal profile</span>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
